@@ -568,19 +568,37 @@ ashade.init = function() {
     $ashade_header_holder.height($ashade_header.height()).prependTo($ashade_scroll);
 
     // Set Logo Size
+    // if (jQuery('a.ashade-logo').length) {
+    //     jQuery('a.ashade-logo').each(function() {
+    //         let $this = jQuery(this),
+    //             $img = $this.children('img'),
+    //             w = $img.attr('width'),
+    //             h = $img.attr('height');
+    //         if ($this.hasClass('is-retina')) {
+    //             $this.width(w / 2).height(h / 2);
+    //         } else {
+    //             $this.width(w).height(h);
+    //         }
+    //     });
+    // }
     if (jQuery('a.ashade-logo').length) {
-        jQuery('a.ashade-logo').each(function() {
-            let $this = jQuery(this),
-                $img = $this.children('img'),
-                w = $img.attr('width'),
-                h = $img.attr('height');
-            if ($this.hasClass('is-retina')) {
-                $this.width(w / 2).height(h / 2);
-            } else {
-                $this.width(w).height(h);
-            }
-        });
-    }
+    jQuery('a.ashade-logo').each(function() {
+        let $this = jQuery(this),
+            $img = $this.children('img'),
+            w = parseInt($img.attr('width')),
+            h = parseInt($img.attr('height'));
+
+        // Factor to increase size
+        let factor = 3.5;
+
+        if ($this.hasClass('is-retina')) {
+            $this.width((w / 2) * factor).height((h / 2));
+        } else {
+            $this.width(w * factor).height(h * factor);
+        }
+    });
+}
+
 
     // Set Menu Active Parent Items
     if (jQuery('.current-menu-item').length) {
@@ -1850,3 +1868,12 @@ ashade.content_loaded = function() {
     }
     ashade.layout();
 }
+
+//Header scroll
+jQuery(window).on('scroll', function() {
+    if (jQuery(this).scrollTop() > 50) { // scroll trigger, 50px from top
+        jQuery('#ashade-header').addClass('scrolled');
+    } else {
+        jQuery('#ashade-header').removeClass('scrolled');
+    }
+});
