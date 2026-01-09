@@ -75,6 +75,10 @@ body section.ashade-section.hide-on-desktop {
         width: calc(100% - 280px);
         margin: auto;
     }
+    .ashade-albums-slider
+    {
+        left :0px !important;
+    }
 }
 
 /* Laptop Styles */
