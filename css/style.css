@@ -1497,7 +1497,7 @@ aside#ashade-aside {
 
 .ashade-aside-content {
     max-width: 384px;
-    padding: 40px 40px;
+    padding: 20px 40px;
 }
 
 /* --- Aside Widgets --- */
@@ -1508,8 +1508,8 @@ aside#ashade-aside {
 
 .ashade-widget p {
     font-size: 15px;
-    line-height: 28px;
-    margin-bottom: 28px;
+    line-height: 23px;
+    margin-bottom: 10px;
 }
 
 .ashade-widget p:last-child,
